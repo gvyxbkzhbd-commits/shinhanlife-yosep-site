@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>신요섭 설계사 | 상담예약 · 보장진단</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="고객의 인생 설계를 함께하는 신한라이프 FC 신요섭입니다. 온라인 상담 예약 · 보장진단 · 후기 작성 · 챗봇 상담">
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>신한라이프 설계사 <span class="accent">신요섭</span></h1>
+        <p class="tagline">고객의 인생 설계를 함께하는 신한라이프 FC 신요섭입니다.</p>
+        <div class="actions">
+          <a class="btn" href="#diagnosis">무료 보장진단</a>
+          <a class="btn ghost" href="#reserve">상담예약하기</a>
+          <a class="btn link" href="https://today.shinhanlife.co.kr/om/MRPrJestF7gz2Xr/omcvasm001m.mdv?vid=92120519" target="_blank" rel="noopener">신한라이프 공식 보장분석</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/profile.jpg" alt="신한라이프 설계사 신요섭 프로필">
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="diagnosis" class="card">
+      <h2>간단 보장진단 (3문항)</h2>
+      <form id="diagForm">
+        <div class="grid-2">
+          <label>연령<input type="number" id="age" min="15" max="100" value="35"></label>
+          <label>현재 보험 가입 여부
+            <select id="hasInsurance">
+              <option value="no">미가입</option>
+              <option value="yes">가입중</option>
+            </select>
+          </label>
+        </div>
+        <label>주요 관심분야
+          <select id="focus">
+            <option value="driver">운전자보험</option>
+            <option value="cancer">암보험</option>
+            <option value="life">종신/생명보험</option>
+            <option value="health">실손/건강</option>
+          </select>
+        </label>
+        <button type="submit" class="btn">진단결과 보기</button>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://today.shinhanlife.co.kr/om/MRPrJestF7gz2Xr/omcvasm001m.mdv?vid=92120519">신한라이프 공식 보장분석 바로가기</a>
+      </form>
+      <div id="diagResult" class="result" aria-live="polite"></div>
+    </section>
+
+    <section id="reserve" class="card">
+      <h2>상담 예약</h2>
+      <form id="reserveForm">
+        <div class="grid-2">
+          <label>이름<input id="r_name" required></label>
+          <label>연락처<input id="r_phone" required placeholder="010-1234-5678"></label>
+        </div>
+        <div class="grid-2">
+          <label>상담방법
+            <select id="r_method">
+              <option>전화 상담</option>
+              <option>카카오톡</option>
+              <option>온라인(Zoom)</option>
+              <option>오프라인 방문</option>
+            </select>
+          </label>
+          <label>희망일시<input id="r_datetime" type="datetime-local" required></label>
+        </div>
+        <label>간단메모<textarea id="r_note" rows="3" placeholder="관심상품/현재상황 등을 남겨주세요."></textarea></label>
+        <button class="btn">예약하기</button>
+      </form>
+      <div class="hint">예약 접수 후 신요섭 설계사가 확인하여 연락드립니다.</div>
+      <div id="reserveList" class="list"></div>
+    </section>
+
+    <section id="chatbot" class="card">
+      <h2>챗봇 상담 (요르 상담도우미)</h2>
+      <div id="chatWindow" class="chat"></div>
+      <div class="quick">
+        <button class="chip" data-q="운전자보험 핵심 보장은?">운전자보험</button>
+        <button class="chip" data-q="암보험은 어떻게 구성하나요?">암보험</button>
+        <button class="chip" data-q="상담 예약하려면?">상담 예약</button>
+        <button class="chip" data-q="보장분석 링크 알려줘">보장분석</button>
+      </div>
+      <form id="chatForm">
+        <input id="chatInput" placeholder="질문을 입력하세요. 예: 운전자보험 필요성" autocomplete="off">
+        <button class="btn">전송</button>
+      </form>
+      <small class="hint">안내용 정보입니다. 개인 상황에 따라 다를 수 있어 정확한 설계는 상담 예약을 권장합니다.</small>
+    </section>
+
+    <section id="reviews" class="card">
+      <h2>후기 (고객님 작성)</h2>
+      <form id="reviewForm">
+        <div class="grid-3">
+          <label>이름(별칭)<input id="rev_name" required></label>
+          <label>평점
+            <select id="rev_rating">
+              <option>5</option><option>4</option><option>3</option><option>2</option><option>1</option>
+            </select>
+          </label>
+          <label>방문경로
+            <select id="rev_src">
+              <option>지인추천</option><option>블로그</option><option>유튜브</option><option>검색</option><option>기타</option>
+            </select>
+          </label>
+        </div>
+        <label>한줄후기<textarea id="rev_text" rows="2" required></textarea></label>
+        <button class="btn">후기등록</button>
+      </form>
+      <div id="reviewList" class="list"></div>
+    </section>
+
+    <section class="card">
+      <h2>문의·연락처</h2>
+      <p>설계사: <strong>신요섭</strong> (신한라이프 공식 설계사)</p>
+      <p>연락처: <a href="tel:01083067469">010-8306-7469</a> · 카카오톡 ID: <strong>shinhanlife_yosep</strong></p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 신한라이프 설계사 신요섭. 이 사이트는 상담 편의를 위한 MVP입니다.</p>
+  </footer>
+
+<script src="faq.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
